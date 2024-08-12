@@ -1,0 +1,52 @@
+.dashboard {
+    margin-bottom: 20px;
+  }
+  
+  .dashboard h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .storage-info {
+    background-color: #212330;
+    margin: 20px 0;
+
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.5);
+  }
+  
+  .storage-info p {
+    margin-bottom: 10px;
+    color: #d6d6d6;
+  }
+  
+  .storage-bar {
+    height: 8px;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  
+  .storage-used {
+    height: 100%;
+    background-color: #4a4af4;
+    display: flex;
+  }
+  
+  .storage-used span {
+    flex-grow: 1;
+  }
+  
+  .storage-used .compressed {
+    background-color: #4a4af4;
+  }
+  
+  .storage-used .spreadsheet {
+    background-color: #7676f7;
+  }
+  
+  .storage-used .others {
+    background-color: #a3a3f9;
+  }
