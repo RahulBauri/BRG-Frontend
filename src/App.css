@@ -98,3 +98,85 @@
     font-size: 14px;
     color: #666;
   }
+
+  .video-editor {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .panels-container {
+    display: flex;
+    flex-grow: 1;
+    gap: 20px;
+  }
+  
+  .file-upload, .video-preview-panel, .preview-panel {
+    flex: 1;
+    background-color: #2a2b38;
+    border-radius: 10px;
+    padding: 20px;
+  }
+  
+  .video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 10px;
+  }
+  
+  .video-tile {
+    position: relative;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  
+  .video-tile.selected {
+    border-color: #4a4af4;
+  }
+  
+  .video-tile img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .tick-radio {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #4a4af4;
+  }
+  
+  .video-container {
+    position: relative;
+    width: 360px;
+    height: 640px;
+    border: 1px solid #4a4af4;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  
+  .caption {
+    color: yellow;
+    font-size: 16px;
+    text-shadow: 2px 2px 2px black;
+    white-space: nowrap;
+  }
+  
+  .preview-button {
+    background-color: #4a4af4;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .preview-button:hover {
+    background-color: #3a3ad4;
+  }
