@@ -74,6 +74,32 @@ const VideoEditor = () => {
     }
   };
 
+  const handleGenerate = async () => {
+    const data = {
+      video1: {
+        file: uploadedVideo,
+        start: video1Time.start,
+        end: video1Time.end,
+        position: video1Position
+      },
+      video2: {
+        file: selectedBackendVideo,
+        start: video2Time.start,
+        end: video2Time.end,
+        position: video2Position
+      }
+    };
+  
+    try {
+      const response = await axios.post('http://localhost:3000/api/v1/video/processSingleVideo', data);
+      console.log('Video generated:', response.data);
+      // Handle success (e.g., show download link)
+    } catch (error) {
+      console.error('Error generating video:', error);
+      // Handle error
+    }
+  };
+
   // const selectedVideoData = backendVideos.find(video => video.name === selectedBackendVideo);
 
   return (

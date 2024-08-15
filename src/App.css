@@ -5,11 +5,27 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+
+:root {
+  --background-dark: #121212;
+  --surface-dark: #1E1E1E;
+  --primary-neon: #00FFFF;
+  --secondary-neon: #FF00FF;
+  --text-light: #FFFFFF;
+}
+
+body {
+  background-color: var(--background-dark);
+  color: var(--text-light);
+}
+
+
 .app {
     display: flex;
     height: 100vh;
     font-family: Arial, sans-serif;
-    color: white
+    color: white;
+    background-color: var(--surface-dark);
   }
   
   .main-content {
@@ -179,4 +195,49 @@
   
   .preview-button:hover {
     background-color: #3a3ad4;
+  }
+
+  .file-upload, .video-preview-panel, .preview-panel {
+    background-color: var(--surface-dark);
+    border: 1px solid var(--primary-neon);
+    box-shadow: 0 0 10px var(--primary-neon);
+  }
+
+  button {
+    background-color: var(--primary-neon);
+    color: var(--background-dark);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+  }
+
+  button:hover {
+    background-color: var(--secondary-neon);
+    box-shadow: 0 0 15px var(--secondary-neon);
+  }
+
+  .video-editor {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .panels-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .file-upload, .video-preview-panel, .preview-panel {
+    flex: 1 1 300px;
+    min-width: 300px;
+  }
+  
+  @media (max-width: 768px) {
+    .panels-container {
+      flex-direction: column;
+    }
   }
