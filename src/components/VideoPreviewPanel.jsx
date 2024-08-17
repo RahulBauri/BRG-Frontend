@@ -19,7 +19,7 @@ const VideoThumbnail = ({ video, isSelected, onClick }) => {
       <video 
         ref={videoRef}
         src={`http://localhost:3000/api/v1/video/preview/${video.name}`}
-        style={{ width: '100%', height: 'auto' }}
+        style={{ width: 'auto', maxHeight:"10vh", height: 'auto', display:"inline-block" }}
         preload="metadata"
       />
       <p>{video.name}</p>
