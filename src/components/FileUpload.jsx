@@ -1,9 +1,12 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
+import uploadIcon from "../assets/cloud-upload.svg" 
 
 const FileUpload = ({ onFileUpload }) => {
+  const [uploaded,setUploaded] = useState(null)
   const onDrop = useCallback((acceptedFiles) => {
     if (acceptedFiles.length > 0) {
+      setUploaded(URL.createObjectURL(acceptedFiles[0]))
       onFileUpload(acceptedFiles[0]);
     }
   }, [onFileUpload]);
@@ -16,13 +19,14 @@ const FileUpload = ({ onFileUpload }) => {
 
   return (
     <div {...getRootProps()} className={`file-upload ${isDragActive ? 'dragging' : ''}`}>
+      {uploaded ? <>
+        <video src={uploaded} style={{height: "100%"}}></video>
+        </>: <>
       <input {...getInputProps()} />
-      <p>Drag & drop a video file here, or click to select one</p>
-      {isDragActive ? (
-        <div>Drop the file here ...</div>
-      ) : (
-        <div>Drag 'n' drop a video file here, or click to select one</div>
-      )}
+      <img src={uploadIcon} height={100} width={100}/>
+      <p>Drag & drop a video file here</p>
+      OR click to select one
+      </>}
     </div>
   );
 };

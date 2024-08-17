@@ -14,6 +14,11 @@
   --text-light: #FFFFFF;
 }
 
+p.text-2{
+  font-size: 1.5rem;
+  margin: 0.8rem 0;
+}
+
 body {
   background-color: var(--background-dark);
   color: var(--text-light);
@@ -132,11 +137,13 @@ body {
     background-color: #2a2b38;
     border-radius: 10px;
     padding: 20px;
+    justify-content: center;
+    align-items: center;
   }
   
   .video-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    grid-auto-columns: minmax(0, 1fr);
+   grid-auto-flow: column;
     gap: 10px;
   }
   
@@ -226,11 +233,11 @@ body {
   }
   
   .panels-container {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
   }
-  
+
   .file-upload, .video-preview-panel, .preview-panel {
     flex: 1 1 300px;
     min-width: 300px;
