@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import './VideoPreviewPanel.css'
 
 const VideoThumbnail = ({ video, isSelected, onClick }) => {
@@ -19,19 +19,39 @@ const VideoThumbnail = ({ video, isSelected, onClick }) => {
       <video 
         ref={videoRef}
         src={`http://localhost:3000/api/v1/video/preview/${video.name}`}
-        style={{ width: 'auto', maxHeight:"10vh", height: 'auto', display:"inline-block" }}
+        style={{ width: '100%', maxHeight:"10vh", height: 'auto', display:"inline-block" }}
         preload="metadata"
       />
-      <p>{video.name}</p>
+      <p 
+        style={{ width: '100%', maxHeight:"10vh", height: 'auto', display:"inline-block" }}
+        >{video.name}</p>
       {isSelected && <div className="tick-radio"></div>}
     </div>
   );
 };
 
 const VideoPreviewPanel = ({ videos, selectedVideo, onSelectVideo }) => {
+
+  const [useSingle, setUseSingle] = useState(false);
+
+  const handleRadioChange = () => {
+    setUseSingle(!useSingle);
+  };
+
   return (
     <div className="video-preview-panel">
+      <label className="radio-checkbox">
+      <input
+        type="radio"
+        checked={useSingle}
+        onChange={handleRadioChange}
+        className="radio-checkbox-input"
+      />
+      <span className="radio-checkbox-custom" />
+      Select Random
+    </label>
       <h3>Available Videos</h3>
+      <button type='radio' />
       <div className="video-grid">
         {videos.map((video) => (
           <VideoThumbnail

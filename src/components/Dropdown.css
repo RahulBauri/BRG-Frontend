@@ -1,0 +1,27 @@
+.dropdown-wrapper {
+    width: 100%;
+    position: relative;
+  }
+  
+  .dropdown-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-size: 2rem;
+  }
+  
+  .dropdown-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+  }
+  
+  .dropdown-wrapper.open .dropdown-content {
+    max-height: 500px; /* Adjust as needed */
+    transition: max-height 0.5s ease-in;
+  }
+  

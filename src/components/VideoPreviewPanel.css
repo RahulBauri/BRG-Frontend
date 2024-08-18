@@ -1,3 +1,43 @@
 .video-tile video {
     pointer-events: none;
   }
+
+  .radio-checkbox {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .radio-checkbox-input {
+    display: none; /* Hide the default radio button */
+  }
+  
+  .radio-checkbox-custom {
+    width: 18px;
+    height: 18px;
+    background-color: #fff;
+    border: 2px solid #007bff;
+    border-radius: 3px; /* Makes it look like a checkbox */
+    margin-right: 8px;
+    display: inline-block;
+  }
+  
+  .radio-checkbox-input:checked + .radio-checkbox-custom {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .radio-checkbox-custom:after {
+    content: '';
+    display: none;
+    width: 8px;
+    height: 8px;
+    background-color: white;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+  }
+  
+  .radio-checkbox-input:checked + .radio-checkbox-custom:after {
+    display: block;
+  }
