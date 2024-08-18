@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import FileUpload from './FileUpload';
 import VideoPreviewPanel from './VideoPreviewPanel';
+import Dropdown from './Dropdown';
 
 const VideoEditor = () => {
   const [uploadedVideo, setUploadedVideo] = useState(null);
@@ -123,16 +124,25 @@ const VideoEditor = () => {
 
       <div className="panels-container">
         <div className='subpanels-container'>
+        <Dropdown title="Step 1 - Upload Top Video" propOpen={true}>
+
         <FileUpload onFileUpload={handleUpload} />
-        {uploadedVideo && <>
-          <p className='text-2'>Upload second video (Optional)</p><FileUpload onFileUpload={handleUpload2} /></>}
-        </div>
-        
-        {!uploadedVideo2 && <VideoPreviewPanel 
+        </Dropdown>
+        <Dropdown title="Step 2 - Upload Bottom Video" propOpen={false}>
+          <div className="secondVideoPanel">
+
+          <FileUpload onFileUpload={handleUpload2} />
+          <VideoPreviewPanel 
           videos={backendVideos} 
           selectedVideo={selectedBackendVideo} 
           onSelectVideo={handleBackendVideoSelect} 
-        />}
+          />
+          </div>
+        </Dropdown>
+
+        </div>
+        
+        
 
         <div className="preview-panel">
           <div ref={containerRef} className="video-container">

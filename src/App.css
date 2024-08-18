@@ -27,7 +27,6 @@ body {
 
 .app {
     display: flex;
-    height: 100vh;
     font-family: Arial, sans-serif;
     color: white;
     background-color: var(--surface-dark);
@@ -141,9 +140,15 @@ body {
     align-items: center;
   }
   
+  .video-preview-panel{
+    max-height: 30vh;
+    overflow: auto;
+  }
+
   .video-grid {
-    grid-auto-columns: minmax(0, 1fr);
-   grid-auto-flow: column;
+    /* display: grid; */
+    /* grid-auto-columns: minmax(0, 1fr); */
+   /* grid-auto-flow: dense; */
     gap: 10px;
   }
   
@@ -153,15 +158,16 @@ body {
     border: 2px solid transparent;
     border-radius: 5px;
     overflow: hidden;
+    width: 30%;
+    display: inline-block;
   }
   
   .video-tile.selected {
     border-color: #4a4af4;
   }
   
-  .video-tile img {
+  .video-tile video {
     width: 100%;
-    height: auto;
   }
   
   .tick-radio {
@@ -234,13 +240,13 @@ body {
   
   .panels-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr;
     gap: 20px;
   }
 
   .file-upload, .video-preview-panel, .preview-panel {
-    flex: 1 1 300px;
-    min-width: 300px;
+    /* flex: 1 1 300px; */
+    /* min-width: 300px; */
   }
   
   @media (max-width: 768px) {
@@ -248,3 +254,13 @@ body {
       flex-direction: column;
     }
   }
+
+.subpanels-container{
+  display: flex;
+  flex-direction: column;
+}
+
+.secondVideoPanel{
+  display: flex;
+  flex-direction: row;
+}

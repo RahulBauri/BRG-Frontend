@@ -166,11 +166,11 @@ const App = () => {
 
   return (
     <div className="app">
-      <Sidebar />
+      {/* <Sidebar /> */}
       <main className="main-content">
         <Dashboard usedStorage={13.25} totalStorage={15} />
         <VideoEditor />
-        <FileList files={files} />
+        {/* <FileList files={files} /> */}
       </main>
     </div>
   );
